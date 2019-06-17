@@ -40,7 +40,7 @@ namespace ExampleProject.Classes
         public void example()
         {
             string temp = Utils.RandomStringGenerator.RandomString(12);
-
+            var change = "random change";
         }
     }
 }
