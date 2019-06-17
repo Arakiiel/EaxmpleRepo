@@ -8,9 +8,16 @@ namespace ExampleProject.Classes
         public string MiddleName { get; set; }
         public string LastName { get; set; }
 
+        public FullName(string firstName, string middleName, string lastName)
+        {
+            FirstName = firstName;
+            MiddleName = middleName;
+            LastName = lastName;
+        }
+
         public string ReturnFullName()
         {
-            return FirstName + MiddleName + LastName;
+            return FirstName +" "+ MiddleName+ " " + LastName;
 
             //return null;
             //return "adsfa";
@@ -22,6 +29,23 @@ namespace ExampleProject.Classes
     {
         public List<FullName> Names { get; set; }
 
+        public ExampleClass()
+        {
+            Names = new List<FullName>();
+        }
+
+        public void InitialiseNames()
+        {
+            Names.Add(new FullName("name1", "name2", "name3"));
+            Names.Add(new FullName("name1", "name2", "name3"));
+            Names.Add(new FullName("name1", "name2", "name3"));
+            Names.Add(new FullName("name1", "name2", "name3"));
+            Names.Add(new FullName("name1", "name2", "name3"));
+            Names.Add(new FullName("name1", "name2", "name3"));
+            Names.Add(new FullName("name1", "name2", "name3"));
+            Names.Add(new FullName("name1", "name2", "name3"));
+            Names.Add(new FullName("name1", "name2", "name3"));
+        }
 
         public List<FullName> ReturnNames()
         {
@@ -35,6 +59,14 @@ namespace ExampleProject.Classes
         public string AlterName(string name)
         {
             return name + Utils.RandomStringGenerator.RandomString(4);
+        }
+
+        public void AlterNames()
+        {
+            foreach(FullName name in Names)
+            {
+                name.LastName = AlterName(name.LastName);
+            }
         }
 
         public void example()
